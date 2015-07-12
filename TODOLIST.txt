@@ -1,0 +1,51 @@
+
+MODELS
+---------------------------------
+Connection
+  - two people 
+  - date of connection
+  - (image of connection)
+
+HistoricRecord
+  - a graph representation through a list
+
+People
+  - name
+  - status (in-active: 9999; taken: 1; available: 0)
+  - date of sign-up
+  - (facebook id)
+  - total lunches
+
+
+function chooseRandom(Person). 
+- filter people by availablility
+- sort list of people by their lowest number connections
+- choose within first half of that list
+- returns random person in list
+
+global vars:
+total number of people
+
+
+VIEWS
+------------------------------------- 
+Home Page
+ - info section
+ - sign-up section
+
+Personal Page (for each person)
+ - some visualization of people they've had lunch with in the past
+ - Top half: past lunches 
+ - Bottom half: other choices 
+Historic Page
+ - connections (arrow from one to the other)
+
+TESTS
+-----------------------------------------
+- testChooseRandom 
+  - pre: people should be active
+  - should not return the same person
+  - if there are no other people, should return None
+
+response = self.client.get(reverse('polls:index'))
+self.assertEqual(response.status_code, 200) 

@@ -1,0 +1,9 @@
+*.pyc
+db.*
+venv
+staticfiles
+mysite/local_settings.py
+dump.rdb
+*.db
+
+celerybeat.pid

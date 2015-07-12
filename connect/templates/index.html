@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+{% block title %}Lunch Dates{% endblock %}
+
+{% block content %}
+{% if total_people %} 
+<ul> 
+  {% for person in total_people %} 
+  <li>
+  <a href= {% url 'connect:detail' person.id %}> 
+    {{person.first_name}} {{person.last_name}}
+  </a></li> 
+
+  {%endfor %}
+</ul>
+{%else %}
+<p> No people are available </p>
+{% endif %}
+{% endblock %}
+
+

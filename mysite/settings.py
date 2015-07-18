@@ -7,6 +7,9 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+## some import errors?
+from __future__ import absolute_import
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -114,8 +117,8 @@ except ImportError:
 
 
 # CELERY SETTINGS
-BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+BROKER_URL = 'redis://h:pbtcgkislmiikl1e25t5smgi2uo@ec2-54-83-57-64.compute-1.amazonaws.com:7909'
+CELERY_RESULT_BACKEND = 'redis://h:pbtcgkislmiikl1e25t5smgi2uo@ec2-54-83-57-64.compute-1.amazonaws.com:7909'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'

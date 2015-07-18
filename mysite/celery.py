@@ -10,14 +10,14 @@ from django.conf import settings
  
 # get the environment variables from Heroku
 #import settings to run locally
-app = Celery('mysite', 
-  BROKER_URL=os.environ['REDIS_URL'],
-  CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
-
 try:
   from .local_settings import *
 except ImportError:
-  pass
+  app = Celery('mysite', 
+  BROKER_URL=os.environ['REDIS_URL'],
+  CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
+
+
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.

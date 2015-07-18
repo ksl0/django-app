@@ -45,10 +45,7 @@ def setUpLunch():
 ## TODO: ensure runs at different time than setUpLunch (or runs right after)
 @task(name='task.reset_weekly_avail')
 def resetStatus():
-  list_persons = PersonalProfile.objects.all()
-  for person in list_persons:
-    person.resetStatus()
-  return 0
+  list_persons = PersonalProfile.objects.all().map(lambda u: u.resetStatus())
 
 #####################
 #Test functions, indicating celery functionality

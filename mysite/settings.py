@@ -121,15 +121,21 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 from celery.schedules import crontab
 CELERYBEAT_SCHEDULE = {  #add every minute
-    'add-each-minute': {
-        'task': 'tasks.add',
-        'schedule': crontab(minute='*/1'),
-        'args': (16, 16),
-    },
+   # Executes every minutes to show that celery is working
    'send-more-mail':{
      'task': 'task.spam_email', 
-     'schedule', crontab(minute='*/5'),
-   }
+     'schedule': crontab(hour='*/1'),
+   },
+   'saturday-reset-weekly-availibility':{
+     #Executes every Saturday night at 11:59 P.M.
+     'task': 'task.reset_weekly_avail' ,
+     'schedule': crontab(hour=23, minute=59, day_of_week=6),
+   },
+   'create-weekly-lunch-schedule':{
+     # Executes each Sunday at noon
+     'task': 'task.weekly_lunch_setup',
+     'schedule': crontab(hour=12, minute=0, day_of_week=0),
+   }, 
 }
 
 ## email settings

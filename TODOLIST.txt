@@ -49,3 +49,8 @@ TESTS
 
 response = self.client.get(reverse('polls:index'))
 self.assertEqual(response.status_code, 200) 
+
+
+SETUP
+-----------------
+Connect everyone on the first go, create with lunch_points = 0
